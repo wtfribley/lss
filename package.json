@@ -1,0 +1,23 @@
+{
+  "name": "node-lss",
+  "version": "0.1.0",
+  "description": "lists groups of numerically sequenced files",
+  "keywords": [
+    "lss",
+    "sequence",
+    "file sequence"
+  ],
+  "author": "Weston Fribley <me@westonfribley.com> (http://westonfribley.com)",
+  "license": "MIT",
+  "main": "lss.js",
+  "scripts": {
+    "test": "mocha --reporter=spec"
+  },
+  "devDependencies": {
+    "mocha": "~1.20.1",
+    "should": "~2.1.1"
+  },
+  "dependencies": {
+    "glob": "^4.0.3"
+  }
+}
