@@ -1,12 +1,37 @@
 #!/usr/bin/env node
 
-var lss = require('../lss'),
-    path = process.argv[2];
+var command = require('commander'),
+    lss = require('../lss');
 
-lss(path, function(err, sequences) {
-    if (err) return console.log(err);
+command
+    .version('0.1.0')
+    .usage('<path> [options]')
+    .option('-f, --format [fmt]', 'format string [\'%b%p%a %04r\']', '%b%p%a %04r');
+
+command.on('--help', function() {
+
+    console.log('  Formatting Directives:\n');
+    
+    console.log('    %s\tstart of sequence');
+    console.log('    %e\tend of sequence');
+    console.log('    %l\tlength of sequence');
+    console.log('    %r\tsequence range (e.g. 1-5)');
+    console.log('    %p\tsequence padding (e.g. %04d)');
+    console.log('    %#\tnumber sign padding (e.g. ####)');
+    console.log('    %b\tsequence name part BEFORE the numerical index');
+    console.log('    %a\tsequence name part AFTER the numerical index');
+    console.log('    %d\tsequence directory\n');
+
+    console.log('    Padding is supported: %<padding char><padding lengh>s|e|l|r\n');
+
+});
+
+command.parse(process.argv);
+
+lss(command.args[0] || process.cwd(), function(err, sequences) {
+    if (err) return console.error(err);
 
     sequences.forEach(function(seq) {
-        console.log('%s %d-%d', seq.format(), seq.start, seq.end);
+        console.log(seq.format(command.format));
     });
 });
