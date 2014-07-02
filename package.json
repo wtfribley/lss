@@ -1,11 +1,12 @@
 {
-  "name": "node-lss",
+  "name": "lss",
   "version": "0.1.0",
   "description": "lists groups of numerically sequenced files",
   "keywords": [
     "lss",
     "sequence",
-    "file sequence"
+    "file sequence",
+    "list"
   ],
   "author": "Weston Fribley <me@westonfribley.com> (http://westonfribley.com)",
   "license": "MIT",
