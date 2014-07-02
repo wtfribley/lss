@@ -10,8 +10,11 @@
   "author": "Weston Fribley <me@westonfribley.com> (http://westonfribley.com)",
   "license": "MIT",
   "main": "lss.js",
+  "bin": {
+    "lss": "./bin/lss"
+  },
   "scripts": {
-    "test": "mocha --reporter=spec"
+    "test": "mocha --reporter spec"
   },
   "devDependencies": {
     "mocha": "~1.20.1",

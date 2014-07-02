@@ -1,1 +1,12 @@
 #!/usr/bin/env node
+
+var lss = require('../lss'),
+    path = process.argv[2];
+
+lss(path, function(err, sequences) {
+    if (err) return console.log(err);
+
+    sequences.forEach(function(seq) {
+        console.log('%s %d-%d', seq.format(), seq.start, seq.end);
+    });
+});
