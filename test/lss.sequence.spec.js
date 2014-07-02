@@ -216,7 +216,34 @@ describe('Sequence.prototype.format()', function() {
 
     var seq = new Sequence(goodSequenceOfFileStrings);
 
-    it('should return a string in sprintf-like sequence notation', function() {
-        seq.format().should.equal('a123Sequence.%04d.txt');
+    describe('given no arguments', function() {
+
+        it('should output a string in default format ' +
+           '(%b%p%a)', function() {
+            seq.format().should.equal('a123Sequence.%04d.txt');
+        });
+    });
+
+    describe('given a format string', function() {
+
+        it('should replace directives with pertinent information', function() {
+            seq.format('%04l %b%r%a').should.equal('0005 a123Sequence.1-5.txt');
+            seq.format('%s %e').should.equal('1 5');
+            seq.format('%02s %02e').should.equal('01 05');
+            seq.format('%04r').should.equal('0001-0005');
+            seq.format('%b%#%a').should.equal('a123Sequence.####.txt');
+            seq.format('%r %p %r').should.equal('1-5 %04d 1-5');
+        });
+
+        it('should replace unknown directives with the literal ' +
+           'directive', function() {
+            seq.format('%b%c%a').should.equal('a123Sequence.c.txt');
+            seq.format('%b%%c%a').should.equal('a123Sequence.%c.txt');
+            seq.format('%b%%%a').should.equal('a123Sequence.%.txt');
+        });
+
+        it('should not replace non-directives', function() {
+            seq.format('s').should.equal('s');
+        });
     });
 });
