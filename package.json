@@ -1,6 +1,6 @@
 {
   "name": "lss",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "lists groups of numerically sequenced files",
   "keywords": [
     "lss",
@@ -10,6 +10,11 @@
   ],
   "author": "Weston Fribley <me@westonfribley.com> (http://westonfribley.com)",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wtfribley/lss.git"
+  },
+  "bugs": "https://github.com/wtfribley/lss/issues",
   "main": "lss.js",
   "bin": {
     "lss": "./bin/lss"
