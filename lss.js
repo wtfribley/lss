@@ -1,5 +1,5 @@
 /**
- *  node-lss - list groups of numerically sequenced files
+ *  lss - list groups of numerically sequenced files
  *  @version v0.1.0
  *  @author Weston Fribley <me@westonfribley.com> (http://westonfribley.com)
  *  @license MIT
