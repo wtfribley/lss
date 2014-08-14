@@ -14,7 +14,7 @@ var lss = module.exports = function lss(path, callback) {
 
     list(path, function(err, files) {
         if (err) return callback(err);
-        
+
         files.forEach(function(file) {
             
             var inSequence = sequences.some(function(sequence) {
@@ -24,6 +24,7 @@ var lss = module.exports = function lss(path, callback) {
                 }
                 else return false;
             });
+
 
             if (!inSequence) {
                 sequences.push(new Sequence([file]));

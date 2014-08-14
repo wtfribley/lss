@@ -19,6 +19,12 @@ describe('new File(String)', function() {
            'against the basepath', function() {
             file.digits[0].should.have.properties({match: '123', index: 1});
             file.digits[1].should.have.properties({match: '0001', index: 13});
+
+            var fileB = new File('/path/to/file/AR145_GB_SB_1.1001.exr');
+            
+            fileB.digits[0].should.have.properties({match: '145', index: 2});
+            fileB.digits[1].should.have.properties({match: '1', index: 12});
+            fileB.digits[2].should.have.properties({match: '1001', index: 14});
         });
     });
 });

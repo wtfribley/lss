@@ -34,7 +34,6 @@ var badSequenceOfFileInstances = [
     new File('/path/to/a124Sequence.0005.txt')
 ];
 
-
 describe('new Sequence([File | String])', function() {
 
     describe('given an array of Files belonging to the same sequence',
@@ -117,6 +116,21 @@ describe('Sequence.prototype.contains(File | String)', function() {
 
         it('should return true when the argument is a File', function() {
             seq.contains(fileInstance).should.be.true;
+        });
+    });
+
+    describe('given a String or File with a single difference element with ' +
+        'index unequal to the sequence\'s significantGroup index', function() {
+
+        var seq = new Sequence(goodSequenceOfFileStrings),
+            fileString = '/path/to/a124Sequence.0001.txt',
+            fileInstance = new File(fileString);
+
+        it('should return false when the argument is a String', function() {
+          seq.contains(fileString).should.be.false;
+        });
+        it('should return false when the argument is a String', function() {
+          seq.contains(fileInstance).should.be.false;
         });
     });
 
